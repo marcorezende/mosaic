@@ -143,11 +143,11 @@ function aggf(op, type) {
 }
 
 export const count = aggf('COUNT', 'INTEGER');
-export const avg = aggf('AVG');
-export const mean = aggf('AVG');
+export const avg = aggf('AVG', 'DOUBLE');
+export const mean = aggf('AVG', 'DOUBLE');
 export const mad = aggf('MAD');
-export const max = aggf('MAX');
-export const min = aggf('MIN');
+export const max = aggf('MAX', 'DOUBLE');
+export const min = aggf('MIN', 'DOUBLE');
 export const sum = aggf('SUM', 'DOUBLE');
 export const product = aggf('PRODUCT');
 export const median = aggf('MEDIAN');
