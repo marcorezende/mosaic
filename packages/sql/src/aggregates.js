@@ -117,8 +117,16 @@ export class AggregateFunction extends SQLExpression {
 }
 
 function aggExpr(op, args, type, isDistinct, filter) {
-  const close = `)${type ? `::${type}` : ''}`;
-  let strings = [`${op}(${isDistinct ? 'DISTINCT ' :''}`];
+  const castOps = ["AVG", "SUM", "MAX", "MIN"]
+  let strings;
+  let close
+  if (castOps.includes(op)) {
+    close = `AS DOUBLE))${type ? `::${type}` : ''}`;
+    strings = [`${op}(${isDistinct ? 'DISTINCT ' :''} TRY_CAST(`];
+  } else {
+    close = `)${type ? `::${type}` : ''}`;
+    strings = [`${op}(${isDistinct ? 'DISTINCT ' :''}`];
+  }
   let exprs = [];
   if (args.length) {
     strings = strings.concat([
