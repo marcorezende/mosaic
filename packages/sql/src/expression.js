@@ -155,7 +155,6 @@ export function parseSQL(strings, exprs) {
       spans[k] += s;
     }
   }
-
   return { spans, cols: Array.from(cols) };
 }
 

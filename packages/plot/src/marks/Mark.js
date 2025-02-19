@@ -239,6 +239,8 @@ export function markQuery(channels, table, skip = []) {
     q.groupby(Array.from(dims));
   }
 
+  console.log(q.toString())
+
   return q;
 }
 

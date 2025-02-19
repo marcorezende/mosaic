@@ -66,6 +66,7 @@ export function wasmConnector(options = {}) {
      * @returns the query result
      */
     query: async query => {
+      console.log(query)
       const { type, sql } = query;
       const con = await getConnection();
       const result = await getArrowIPC(con, sql);

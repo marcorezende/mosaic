@@ -117,7 +117,7 @@ export class AggregateFunction extends SQLExpression {
 }
 
 function aggExpr(op, args, type, isDistinct, filter) {
-  const castOps = ["AVG", "SUM", "MAX", "MIN"]
+  const castOps = ["AVG", "SUM"]
   let strings;
   let close
   if (castOps.includes(op)) {
